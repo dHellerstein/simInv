@@ -1,5 +1,7 @@
 # simInv
 
+This is version 1.56. As of April 2024, the latest version 1.80. We recommend using the latest version.
+
 simInv: simulate the performance of one or more investment portfolios
  
   simInv allows you to compare the performance of alternative investment portfolios.
