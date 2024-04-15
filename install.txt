@@ -1,23 +1,22 @@
-6 August 2023. simInv 1.5 -- installation instructions.
+14 April 2024. simInv 1.8 -- installation instructions.
 
   **  A longer version of this is in simInv's readme.txt  **
 
-   simInv can be run in two modes:
+   simInv can be run in several modes:
 
-    * online mode --  requires a server that supports php 7.0 or above.
-    * in standalone mode -- can be run directly from a browser accessing a file on your computer
+    * onLine mode --  requires a server that supports php 7.0 or above.
+    * in standAlone mode -- can be run directly from a browser accessing a file on your computer
+    * and a hybrid mode: onLine with local stroage.
 
  Installing in online mode.
    The simInv administrator should
 
-      a) Create a simInv directory in a web accessible directory
+      a) Create a simInv directory in a web accessible directory (on a host http server)
       b) Unzip simInv_vxxx.zip to this directory.
+         Several subdirectories are created 
+         Note that onLine mode can be suppressed with the allowOnLine variable in index.htm. 
 
-      Several subdirectories are created: lib/, publicAssets/,  and data/.
-          An  archive/ directory is also created -- but is not directly used by simInv.
-          It's a convenient place to place archive files (when   running in standAlone mode)
-
-    c)     The data/ directory will contain subdirectories for each user.
+    c)  The data/ directory will contain subdirectories for each user.
 
         ***   It is the administrators job to create directories for each recognized user.  ***
 
@@ -28,41 +27,35 @@
     d)  Load simInv.php with your favorite javascript capable browser.
         For example: http://mysite.org/simInv/index.html
 
-   e) Note that the 'useLocalStorage' variable (in index.html) should equal 0
-
-  Users should logon with one of the usernames created in step (c).
-
+  Users should logon with one of the usernames created in step (c). On their first logon, simInv will initialize
+  their account -- and ask if they want to use encryption.
 
 Installing in standAlone mode
 
- There are two variants of 'standAlone' mode:  'noWeb'  and 'www'. Both use local storage of data.
-
-  * 'noWeb'  -- simInv is loaded locally
-      Users must download the simInv package, but do not need future access to the web!
-
     a) The user should unzip simInv_vxxx.zip to an empty directory.
        For example: d:/myStuff/simInv
-       Note that the data/, publicAssets/, and lib/  directories are created, but data/ is not used in standAlone mode.
-       The user could use it to archive his simInv data!
-
+       Note that simInv's data/  directory is not used in standAlone mode.
+       Note that standAlone mode can be suppressed with the allowStandAlone variable in index.htm. 
+ 
     b) In your browser, enter a file:// url to index.html.
          For example: file:///d:/myStuff/simInv/index.html
 
-    c) Enter a username. The first time, simInv will initialize simInv data for this data -- using local storage.
-      The user can use as many usernames as desired -- each user data is stored seperately
+    c) Enter a username. The first time a username is entered, simInv will initialize simInv data for this user -- 
+       using "indexDB" local storage.
+       A user (or users) of a computer can use as many usernames as desired -- each username's data is stored seperately
 
-  * 'www' access -- simInv is loaded via the web (i.e.; using http://mysite.org/simInv/)
+Installing in hybrid (onLine with local storage)
+   As with onLine mode, simInv must be installed on a http: (or https://) server.
+   But users do NOT have to install simInv.
+   You (the server admin) must set the onLineLocalStorage variable (in index.html) to be either: 
+       1  : all users will use local storage, 
+       2  : users choose between onLine or local storage
 
-      Users do NOT have to download the simInv package, but need accesss to the web to load it in the future!
-
-    a)  As with 'onLine' mode, the simInv administrator should unzip simInv_vxxx.zip to a web accessible director on a http (or https)   server.
-
-    b)  Using a text editor, edit index.html  (in the directory where simInv was installed), and set the "global variable":
-           useLocalStorage=1
-       This should be around line 10.
-
-  As with online mode, users can then load index.html from the web.
-  However: as with 'local' mode -- all data for each user will be stored on the user`s own computer.
-  Thus, the admin does NOT need to create directories under data/
+  Note:
+    * in standAlone  -- the admin does NOT need to create directories under data/ for allowed users.
+    * in onLine with onLine storage   -- the admin DOES need to create directories under data/ for allowed users.
+    * in onLine with local storage- the admin does NOT need to create directories under data/ for allowed users.
+      However: in hybrid mode users should have directories under data/ (in case they choose onLine storage)
 
   For further details on simInv -- see readme.txt
+
