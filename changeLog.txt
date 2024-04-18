@@ -1,0 +1,14 @@
+changeLog for simInv
+
+Changelog starts after version 1.8.41 as of 15 April 2024
+
+
+17 April 2024:    -- 1.8.42
+  *  fixed misspelled variable (cumExpAT) in simInv_growPortfolio.js
+  *  changed "inc" to "exp" (when displaying preview portfolio) in simInv_portfolio.js (2 places)
+  *  added notes about "tax displayed does not incorporate tax offsets fron charitable donations"
+  *  fixed serious error in specify a modification: when interest rate=0 for a bond, and modification 1 day after prior mod (value was 0)
+
+
+
+
